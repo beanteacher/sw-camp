@@ -1,0 +1,6 @@
+#My Properties File
+#Mon Aug 12 12:43:08 KST 2024
+password=root
+driver=org.mariadb.jdbc.Driver
+user=root
+url=jdbc\:mariadb\://localhost\:3306/test

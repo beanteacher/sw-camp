@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/chap01-literal-and-variable-lecture-source" />
+    <file type="web" url="file://$PROJECT_DIR$/chap02-operator-lecture-source" />
+    <file type="web" url="file://$PROJECT_DIR$/chap03-method-and-api-lecture-source" />
+    <file type="web" url="file://$PROJECT_DIR$/chap04-control-flow-lecture-source" />
+    <file type="web" url="file://$PROJECT_DIR$/chap05-array-lecture-source" />
+    <file type="web" url="file://$PROJECT_DIR$/chap07-inheritance-lecture-source" />
+    <file type="web" url="file://$PROJECT_DIR$/chap08-polymorphism-lecture-source" />
+    <file type="web" url="file://$PROJECT_DIR$/chap09-api-lecture-soruce" />
+    <file type="web" url="file://$PROJECT_DIR$/chap10-exception-lecture-source" />
+    <file type="web" url="file://$PROJECT_DIR$/chap11-io-lecture-source" />
+    <file type="web" url="file://$PROJECT_DIR$/chap12-generics-lecture-source" />
+    <file type="web" url="file://$PROJECT_DIR$/chap13-collection-lecture-source" />
+    <file type="web" url="file://$PROJECT_DIR$/chap14-enum-lecture-source" />
+    <file type="web" url="file://$PROJECT_DIR$/chap15-lambda-lecture-source" />
+    <file type="web" url="file://$PROJECT_DIR$/chap16-stream-lecture-source" />
+    <file type="web" url="file://$PROJECT_DIR$/chap17-thread-lecture-source" />
+    <file type="web" url="file://$PROJECT_DIR$/chap18-assertions-lecture-source" />
+    <file type="web" url="file://$PROJECT_DIR$/chap19-junit-lecture-source" />
+    <file type="web" url="file://$PROJECT_DIR$/chap99-comprehensive-lecture-source" />
+  </component>
+  <component name="ProjectRootManager">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

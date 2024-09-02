@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel>
+      <module name="chap10" target="11" />
+      <module name="com.ohgiraffers.chap12" target="11" />
+      <module name="demo" target="11" />
+      <module name="demo.main" target="11" />
+      <module name="demo.test" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

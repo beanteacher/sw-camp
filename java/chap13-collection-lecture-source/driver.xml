@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>My Properties File</comment>
+<entry key="password">root</entry>
+<entry key="driver">org.mariadb.jdbc.Driver</entry>
+<entry key="user">root</entry>
+<entry key="url">jdbc:mariadb://localhost:3306/test</entry>
+</properties>
