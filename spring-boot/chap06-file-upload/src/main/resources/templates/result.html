@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>result</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>실제 파일명</th>
+        <th>서버 파일명</th>
+    </tr>
+    <tr th:each="fileDTO : ${files}">
+        <td th:text="${fileDTO.originFileName}"></td>
+        <td th:text="${fileDTO.savedFileName}"></td>
+    </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,12 @@
+spring:
+  servlet:
+    multipart:
+      # ?? ?? ??
+      location: C:/Users/Playdata/Desktop/lecture/spring-boot/chap06-file-upload/
+      # ?? ??? ?? ??
+      max-file-size: 10MB
+      # ?? ?? ?? ??
+      max-request-size: 10MB
+
+file:
+  path: src/main/resources/static
