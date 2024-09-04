@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ohgiraffers.section01.xml.DynamicSqlMapper">
+    <select id="selectMenuByPrice" resultType="MenuDTO">
+        SELECT
+            MENU_CODE
+            , MENU_NAME
+            , MENU_PRICE
+            , CATEGORY_CODE
+            , ORDERABLE_STATUS
+        FROM TBL_MENU
+        WHERE ORDERABLE_STATUS = 'Y'
+        <if test="price gt 0 &amp;&amp; price lte 10000">
+            AND MENU_PRICE &lt; #{price}
+        </if>
+        <if test="price gt 10000 &amp;&amp; price lte 20000">
+            AND MENU_PRICE BETWEEN 10000 AND #{price}
+        </if>
+        <if test="price gt 20000 &amp;&amp; price lte 30000">
+            AND MENU_PRICE BETWEEN 20000 AND #{price}
+        </if>
+        <if test="price gt 30000">
+            AND MENU_PRICE BETWEEN 30000 AND #{price}
+        </if>
+        ORDER BY MENU_CODE
+    </select>
+
+    <select id="searchMenu" parameterType="SearchCriteria" resultType="MenuDTO">
+        SELECT
+            MENU_CODE
+            , MENU_NAME
+            , MENU_PRICE
+            , CATEGORY_CODE
+            , ORDERABLE_STATUS
+        FROM TBL_MENU A
+        <if test="condition == 'category'">
+            JOIN TBL_CATEGORY B
+            ON A.CATEGORY_CODE = B.CATEGORY_CODE
+        </if>
+        WHERE ORDERABLE_STATUS = 'Y'
+        <if test="condition == 'name'">
+            AND MENU_NAME LIKE CONCAT('%', #{value}, '%')
+        </if>
+        <if test="condition == 'category'">
+            AND CATEGORY_NAME = #{value}
+        </if>
+        ORDER BY MENU_CODE
+    </select>
+</mapper>

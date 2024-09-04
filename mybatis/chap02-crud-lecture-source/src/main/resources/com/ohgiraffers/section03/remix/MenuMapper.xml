@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    Mapper Interface 와 Mapper XML 설정파일을 연동하는 방법
+    1. 인터페이스와 XML 파일이 동일 패키지 위치
+    2. 인터페이스오ㅓㅏ XML 파일이 동일한 이름
+    3. 인터페이스의 풀네임을 namespace 에 지정
+    4. 인터페이스 메소드의 이름과 id가 일치하고, 리턴 타입이 일치하는 쿼리문을 모두 작성
+-->
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ohgiraffers.section03.remix.MenuMapper">
+
+    <select id="selectAllMenu" resultType="com.ohgiraffers.section03.remix.MenuDTO">
+        SELECT MENU_CODE
+            , MENU_NAME
+            , MENU_PRICE
+            , CATEGORY_CODE
+            , ORDERABLE_STATUS
+        FROM TBL_MENU
+        WHERE ORDERABLE_STATUS = 'Y'
+        ORDER BY MENU_CODE
+    </select>
+
+    <select id="selectMenuByMenuCode" parameterType="int" resultType="com.ohgiraffers.section03.remix.MenuDTO">
+        SELECT MENU_CODE
+            , MENU_NAME
+            , MENU_PRICE
+            , CATEGORY_CODE
+            , ORDERABLE_STATUS
+        FROM TBL_MENU
+        WHERE ORDERABLE_STATUS = 'Y'
+            AND MENU_CODE = #{menuCode}
+        ORDER BY MENU_CODE
+    </select>
+
+    <insert id="registMenu" parameterType="com.ohgiraffers.section03.remix.MenuDTO">
+        INSERT INTO
+            TBL_MENU (
+                MENU_NAME
+                , MENU_PRICE
+                , CATEGORY_CODE
+                , ORDERABLE_STATUS
+        )
+        VALUES (
+            #{menuName}
+            , #{menuPrice}
+            , #{categoryCode}
+            , 'Y'
+        )
+    </insert>
+
+    <update id="modifyMenu" parameterType="com.ohgiraffers.section03.remix.MenuDTO">
+        UPDATE TBL_MENU
+        SET MENU_NAME = #{menuName}
+            , MENU_PRICE = #{menuPrice}
+            , CATEGORY_CODE = #{categoryCode}
+        WHERE MENU_CODE = #{menuCode}
+    </update>
+
+    <delete id="deleteMenu">
+        DELETE FROM TBL_MENU
+        WHERE MENU_CODE = #{value}
+    </delete>
+</mapper>
