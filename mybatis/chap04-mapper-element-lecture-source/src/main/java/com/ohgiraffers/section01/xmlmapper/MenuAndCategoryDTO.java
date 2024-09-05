@@ -1,22 +1,33 @@
-package com.ohgiraffers.common;
+package com.ohgiraffers.section01.xmlmapper;
 
-public class MenuDTO {
 
+public class MenuAndCategoryDTO {
     private int menuCode;
     private String menuName;
     private int menuPrice;
-    private int categoryCode;
+    private CategoryDTO categoryDTO;
     private String orderableStatus;
 
-    public MenuDTO() {
+    public MenuAndCategoryDTO() {
     }
 
-    public MenuDTO(int menuCode, String menuName, int menuPrice, int categoryCode, String orderableStatus) {
+    public MenuAndCategoryDTO(int menuCode, String menuName, int menuPrice, CategoryDTO categoryDTO, String orderableStatus) {
         this.menuCode = menuCode;
         this.menuName = menuName;
         this.menuPrice = menuPrice;
-        this.categoryCode = categoryCode;
+        this.categoryDTO = categoryDTO;
         this.orderableStatus = orderableStatus;
+    }
+
+    @Override
+    public String toString() {
+        return "MenuAndCategoryDTO{" +
+                "menuCode=" + menuCode +
+                ", menuName='" + menuName + '\'' +
+                ", menuPrice=" + menuPrice +
+                ", categoryDTO=" + categoryDTO +
+                ", orderableStatus='" + orderableStatus + '\'' +
+                '}';
     }
 
     public int getMenuCode() {
@@ -43,12 +54,12 @@ public class MenuDTO {
         this.menuPrice = menuPrice;
     }
 
-    public int getCategoryCode() {
-        return categoryCode;
+    public CategoryDTO getCategoryDTO() {
+        return categoryDTO;
     }
 
-    public void setCategoryCode(int categoryCode) {
-        this.categoryCode = categoryCode;
+    public void setCategoryDTO(CategoryDTO categoryDTO) {
+        this.categoryDTO = categoryDTO;
     }
 
     public String getOrderableStatus() {
@@ -57,16 +68,5 @@ public class MenuDTO {
 
     public void setOrderableStatus(String orderableStatus) {
         this.orderableStatus = orderableStatus;
-    }
-
-    @Override
-    public String toString() {
-        return "MenuDTO{" +
-                "menuCode=" + menuCode +
-                ", menuName='" + menuName + '\'' +
-                ", menuPrice=" + menuPrice +
-                ", categoryCode=" + categoryCode +
-                ", orderableStatus='" + orderableStatus + '\'' +
-                '}';
     }
 }

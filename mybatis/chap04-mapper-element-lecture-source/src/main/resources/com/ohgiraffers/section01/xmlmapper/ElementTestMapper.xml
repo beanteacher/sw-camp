@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ohgiraffers.section01.xmlmapper.ElementTestMapper">
+
+    <resultMap id="menuResultMap1" type="MenuDTO" autoMapping="false">
+        <id property="menuCode" column="MENU_CODE"/>
+        <result property="menuName" column="MENU_NAME"/>
+        <result property="menuPrice" column="MENU_PRICE"/>
+        <result property="orderableStatus" column="ORDERABLE_STATUS"/>
+    </resultMap>
+    <!-- extends로 기존 menuResultMap1을 확장했으므로 추가하고 싶은 속성만 정의한다. -->
+    <resultMap id="menuResultMap2" type="MenuDTO" extends="menuResultMap1">
+        <result property="categoryCode" column="CATEGORY_CODE"/>
+    </resultMap>
+
+    <select id="selectResultMapTest" resultMap="menuResultMap1">
+        SELECT
+            MENU_CODE
+            , MENU_NAME
+            , MENU_PRICE
+            , CATEGORY_CODE
+            , ORDERABLE_STATUS
+        FROM TBL_MENU
+        WHERE ORDERABLE_STATUS = 'Y'
+        ORDER BY MENU_CODE
+    </select>
+
+    <!-- extends로 기존 menuResultMap1을 확장했으므로 추가하고 싶은 속성만 정의한다.
+        (1) 별도의 resultMap을 사용
+    -->
+    <resultMap id="categoryResultMap" type="CategoryDTO">
+        <id property="categoryCode" column="CATEGORY_CODE"/>
+        <result property="categoryName" column="CATEGORY_NAME"/>
+        <result property="refCategoryCode" column="REF_CATEGORY_CODE"/>
+    </resultMap>
+
+    <resultMap id="menuAndCategoryResultMap" type="MenuAndCategoryDTO" extends="menuResultMap1">
+        <association property="categoryDTO" resultMap="categoryResultMap"/>
+    </resultMap>
+
+    <resultMap id="menuAndCategoryResultMap2" type="MenuAndCategoryDTO" extends="menuResultMap1">
+        <association property="categoryDTO" javaType="CategoryDTO">
+            <id property="categoryCode" column="category_code"/>
+            <result property="categoryName" column="category_name"/>
+            <result property="refCategoryCode" column="ref_category_code"/>
+        </association>
+
+    </resultMap>
+
+    <select id="selectResultMapAssociationTest" resultMap="menuAndCategoryResultMap">
+        SELECT
+            MENU_CODE
+            , MENU_NAME
+            , MENU_PRICE
+            , ORDERABLE_STATUS
+            , B.CATEGORY_CODE
+            , CATEGORY_NAME
+            , REF_CATEGORY_CODE
+        FROM TBL_MENU A
+            JOIN TBL_CATEGORY B USING (CATEGORY_CODE)
+        WHERE ORDERABLE_STATUS = 'Y'
+        ORDER BY MENU_CODE
+    </select>
+
+    <resultMap id="categoryAndMenuResultMap" type="CategoryAndMenuDTO" extends="categoryResultMap">
+        <collection property="menuList" resultMap="menuResultMap2"/>
+    </resultMap>
+
+    <resultMap id="categoryAndMenuResultMap2" type="CategoryAndMenuDTO" extends="categoryResultMap">
+        <collection property="menuList" ofType="MenuDTO">
+            <id property="menuCode" column="MENU_CODE"/>
+            <result property="menuName" column="MENU_NAME"/>
+            <result property="menuPrice" column="MENU_PRICE"/>
+            <result property="categoryCode" column="CATEGORY_CODE"/>
+            <result property="orderableStatus" column="ORDERABLE_STATUS"/>
+        </collection>
+    </resultMap>
+
+    <select id="selectResultMapCollectionTest" resultMap="categoryAndMenuResultMap">
+        SELECT
+            A.CATEGORY_CODE
+            , CATEGORY_NAME
+            , REF_CATEGORY_CODE
+            , MENU_CODE
+            , MENU_NAME
+            , MENU_PRICE
+            , ORDERABLE_STATUS
+        FROM TBL_CATEGORY A
+            LEFT JOIN TBL_MENU B USING (CATEGORY_CODE)
+        WHERE ORDERABLE_STATUS = 'Y'
+        ORDER BY MENU_CODE
+    </select>
+</mapper>

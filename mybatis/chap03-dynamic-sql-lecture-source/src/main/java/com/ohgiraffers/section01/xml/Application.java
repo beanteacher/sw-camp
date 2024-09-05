@@ -2,6 +2,7 @@ package com.ohgiraffers.section01.xml;
 
 import com.ohgiraffers.common.SearchCriteria;
 
+import java.awt.*;
 import java.util.*;
 
 public class Application {
@@ -69,6 +70,7 @@ public class Application {
 
     private static void chooseSubMenu() {
         Scanner sc = new Scanner(System.in);
+        MenuService menuService = new MenuService();
         do {
             System.out.println("===== choose 서브 메뉴 =====");
             System.out.println("1. 카테고리 상위 분류별 메뉴 보여주기(식사, 음료, 디저트)");
@@ -77,7 +79,7 @@ public class Application {
             int no = sc.nextInt();
 
             switch (no) {
-                case 1 : break;
+                case 1 : menuService.searchMenuBySubCategory(inputSupCategory()); break;
                 case 9 : return;
             }
         } while(true);
@@ -93,6 +95,7 @@ public class Application {
 
     private static void foreachSubMenu() {
         Scanner sc = new Scanner(System.in);
+        MenuService menuService = new MenuService();
         do {
             System.out.println("===== foreach 서브 메뉴 =====");
             System.out.println("1. 랜덤한 메뉴 5개 추출해서 조회하기");
@@ -101,7 +104,7 @@ public class Application {
             int no = sc.nextInt();
 
             switch (no) {
-                case 1 : break;
+                case 1 : menuService.searchMenuByRandomMenuCode(createRandomMenuCodeList()); break;
                 case 9 : return;
             }
         } while(true);
@@ -123,6 +126,7 @@ public class Application {
 
     private static void trimSubMenu() {
         Scanner sc = new Scanner(System.in);
+        MenuService menuService = new MenuService();
         do {
             System.out.println("===== trim 서브 메뉴 =====");
             System.out.println("1. 메뉴 혹은 카테고리 코드로 검색, 단 메뉴와 카테고리 둘 다 일치하는 경우도 검색하며, " +
@@ -133,8 +137,8 @@ public class Application {
             int no = sc.nextInt();
 
             switch (no) {
-                case 1 : break;
-                case 2 : break;
+                case 1 : menuService.searchMenuByNameOrCategory(inputSearchCriteriaMap()); break;
+                case 2 : menuService.modifyMenu(inputChangeInfo()); break;
                 case 9 : return;
             }
         } while(true);
@@ -147,6 +151,8 @@ public class Application {
         String condition = sc.nextLine();
 
         Map<String, Object> criteria = new HashMap<>();
+        criteria.put("condition", condition);
+
         if("category".equals(condition)) {
 
             System.out.print("검색할 카테고리 코드 입력 : ");
@@ -167,7 +173,6 @@ public class Application {
             System.out.print("검색할 카테고리 코드 입력 : ");
             int categoryValue = sc.nextInt();
             criteria.put("categoryValue", categoryValue);
-
         }
 
         return criteria;

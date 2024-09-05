@@ -1,7 +1,6 @@
 package com.ohgiraffers.section01.xmlconfig;
 
 import java.util.List;
-import java.util.Map;
 
 public class MenuController {
 
