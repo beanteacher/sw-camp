@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ohgiraffers.transactional.section01.annotation.MenuMapper">
+
+    <select id="selectMenuByMenuCodes"  parameterType="list" resultType="Menu">
+
+        SELECT
+            MENU_CODE,
+            MENU_NAME,
+            MENU_PRICE,
+            CATEGORY_CODE,
+            ORDERABLE_STATUS
+        FROM TBL_MENU
+        WHERE MENU_CODE IN
+        <foreach collection="list" item="menuCode" open="(" separator="," close=")">
+            #{menuCode}
+        </foreach>
+    </select>
+
+</mapper>
