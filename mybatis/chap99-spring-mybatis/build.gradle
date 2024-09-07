@@ -1,6 +1,5 @@
 plugins {
     id 'java'
-    id 'org.jetbrains.kotlin.jvm'
 }
 
 group = 'com.ohgiraffers'
@@ -11,18 +10,12 @@ repositories {
 }
 
 dependencies {
-    // https://mvnrepository.com/artifact/org.mybatis/mybatis
-    implementation 'org.mybatis:mybatis:3.5.6'
-    // https://mvnrepository.com/artifact/com.mysql/mysql-connector-j
-    implementation 'com.mysql:mysql-connector-j:8.3.0'
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    implementation 'org.mybatis:mybatis:3.5.6'
+    implementation 'com.mysql:mysql-connector-j:8.3.0'
 }
 
 test {
     useJUnitPlatform()
-}
-kotlin {
-    jvmToolchain(17)
 }
