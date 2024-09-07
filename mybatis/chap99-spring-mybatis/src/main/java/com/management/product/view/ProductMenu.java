@@ -81,6 +81,7 @@ public class ProductMenu {
         }
 
         SearchCondition searchCondition = new SearchCondition();
+
         searchCondition.setSearchOption(searchOption);
         searchCondition.setSearchValue(searchValue);
 

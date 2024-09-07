@@ -48,14 +48,14 @@
             </when>
             <when test="searchOption == 'salesStore'">
                 <if test="searchValue == '백화점'">
-                    AND DISCOUNT_RATE = 0
+                   AND DISCOUNT_RATE = 0
                 </if>
                 <if test="searchValue == '아울렛'">
-                    AND DISCOUNT_RATE > 0
+                   AND DISCOUNT_RATE > 0
                 </if>
             </when>
             <when test="searchOption == 'newProduct'">
-                AND RELEASE_DATE =
+                LEFT(RELEASE_DATE, 6) = LEFT(DATE_FORMAT(NOW(), '%Y%m%d'), 6)
             </when>
             <when test="searchOption == 'nonProduction'">
                 AND PRODUCTION_STATUS = 'N'
