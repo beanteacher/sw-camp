@@ -55,7 +55,6 @@ public class MybatisConfiguration {
         sqlSessionFactoryBean.setConfiguration(configuration);
         sqlSessionFactoryBean.setVfs(SpringBootVFS.class);
 
-        PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
         sqlSessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:mapper/**/*.xml"));
         sqlSessionFactoryBean.setTypeAliasesPackage("com.ohgiraffers.springmybatis.**.dto");
 
