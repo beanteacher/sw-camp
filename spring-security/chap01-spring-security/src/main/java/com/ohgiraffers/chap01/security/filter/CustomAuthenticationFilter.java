@@ -21,11 +21,12 @@ public class CustomAuthenticationFilter extends AbstractAuthenticationProcessing
         super(new AntPathRequestMatcher("/login", "POST"));
     }
 
-    /* 필터 동작 시 수행할 코드 작성하는 메코드 */
+    /* 필터 동작 시 수행할 코드 작성하는 메소드 */
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException, IOException, ServletException {
         /* request body에 담아온 정보를 우리가 만든 LoginRequest 타입에 담아준다.
         * Controller의 @RequestBody 어노테이션을 통해 자동으로 convert 되었던 부분을 filter에서 직접 처리하는 과정 */
+
         LoginRequestDTO credentials = new ObjectMapper().readValue(request.getInputStream(), LoginRequestDTO.class);
         return getAuthenticationManager().authenticate(
                 new UsernamePasswordAuthenticationToken(credentials.getUserId(), credentials.getUserPwd(), new ArrayList<>())

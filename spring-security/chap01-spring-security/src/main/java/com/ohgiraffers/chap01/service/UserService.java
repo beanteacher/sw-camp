@@ -29,9 +29,7 @@ public class UserService implements UserDetailsService {
 
     @Transactional
     public User createUser(CreateUserRequestDTO userDTO) {
-        log.info("userDTO : {}", userDTO);
         User user = UserMapper.toEntity(userDTO);
-        log.info("userId : {}, userPwd : {}" ,user.getUserId(), user.getUserPwd());
         user.encryptPassword(passwordEncoder.encode(user.getUserPwd()));
         userRepository.save(user);
 
