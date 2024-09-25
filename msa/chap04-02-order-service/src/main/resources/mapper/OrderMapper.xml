@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ohgiraffers.chap0402.mapper.OrderMapper">
+    <resultMap id="orderMap" type="com.ohgiraffers.chap0402.dto.OrderResponse">
+        <result property="orderCode" column="ORDER_CODE"/>
+        <result property="orderDate" column="ORDER_DATE"/>
+        <result property="orderTime" column="ORDER_TIME"/>
+        <collection property="orderMenuList" ofType="com.ohgiraffers.chap0402.dto.OrderMenu">
+            <id property="orderCode" column="ORDER_CODE"/>
+            <id property="menuCode" column="MENU_CODE"/>
+            <result property="orderAmount" column="ORDER_AMOUNT"/>
+        </collection>
+    </resultMap>
+
+    <select id="selectOrder" resultMap="orderMap">
+        SELECT
+            A.ORDER_CODE
+            , A.USER_ID
+            , A.ORDER_DATE
+            , A.ORDER_TIME
+            , A.TOTAL_ORDER_PRICE
+            , B.ORDER_CODE
+            , B.MENU_CODE
+            , B.ORDER_AMOUNT
+        FROM TBL_ORDER2 A
+        JOIN TBL_ORDER_MENU2 B ON (A.ORDER_CODE = B.ORDER_CODE)
+        WHERE A.USER_ID = #{userId}
+    </select>
+</mapper>

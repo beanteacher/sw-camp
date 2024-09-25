@@ -7,30 +7,33 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: 1st-service
-          # ???? ??? ?? URI? ???? ???? 'lb://'? ?? ???? ????.
-          # uri : http://ip:port ?? ????? ?? ?? ??? ?? ??? ??? ??? ???? ?? ?????.
-          uri: lb://1st-service
-          # ?? ??? ? ??? ???? ?? ? ???? ??? ??.
+        - id: user-service
+          uri: lb://swcamp-user-service
           predicates:
-            - Path=/first-service/**
+            - Path=/user-service/**
           filters:
-            - RewritePath=/first-service/(?<segment>.*), /$\{segment}
-            - AddRequestHeader=first-request, first-request-header
-            - AddResponseHeader=first-response, first-response-header
-        - id: 2nd-service
-          uri: lb://2nd-service
+            - RewritePath=/user-service/(?<segment>.*), /$\{segment}
+            - AddRequestHeader=user-request, user-request-header
+            - AddResponseHeader=user-response, user-response-header
+        - id: order-service
+          uri: lb://swcamp-order-service
           predicates:
-            - Path=/second-service/**
+            - Path=/order-service/**
           filters:
-            - RewritePath=/second-service/(?<segment>.*), /$\{segment}
-            - AddRequestHeader=second-request, second-request-header
-            - AddResponseHeader=second-response, second-response-header
+            - RewritePath=/order-service/(?<segment>.*), /$\{segment}
+            - AddRequestHeader=order-request, user-request-header
+            - AddResponseHeader=order-response, user-response-header
+            - AuthorizationHeaderFilter
 eureka:
   instance:
     instance-id: ${spring.application.name}:${spring.instance.instance-id:${random.value}}
+
   client:
     fetch-registry: true
     register-with-eureka: true
     service-url:
       defaultZone: http://localhost:8761/eureka
+
+token:
+  expiration_time: 43200000
+  secret: K0HHLFxls3IXU9tafT999JvEC3c80Dhy7qv41YyY99Pe1agCbJyiv558uBWHTQiYzRDdju9/CLtZltizLjGgSQ==

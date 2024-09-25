@@ -1,6 +1,6 @@
-package com.ohgiraffers.chap01.security.util;
+package com.ohgiraffers.userservice.security.util;
 
-import com.ohgiraffers.chap01.service.UserService;
+import com.ohgiraffers.userservice.service.UserService;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
@@ -8,15 +8,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import java.security.Key;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.stream.Collectors;
 
 @Slf4j
 @Component
@@ -25,10 +20,13 @@ public class JwtUtil {
     private final Key key;
     private final UserService userService;
 
-    public JwtUtil(@Value("${token.secret}") String secretKey, UserService userService) {
+    public JwtUtil(
+            @Value("${token.secret}") String secretKey,
+            UserService userSerivce
+    ) {
         byte[] keyBytes = Decoders.BASE64.decode(secretKey);
         this.key = Keys.hmacShaKeyFor(keyBytes);
-        this.userService = userService;
+        this.userService = userSerivce;
     }
 
     /* Token 검증(Bearer 토큰이 넘어왔고, 우리 사이트의 secret key로 만들어 졌는가, 만료되었는지와 내용이 비어있진 않은지) */
@@ -37,7 +35,7 @@ public class JwtUtil {
         try {
             Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token);
             return true;
-        } catch (SecurityException | MalformedJwtException e) {
+        } catch (io.jsonwebtoken.security.SecurityException | MalformedJwtException e) {
             log.info("Invalid JWT Token {}", e);
         } catch (ExpiredJwtException e) {
             log.info("Expired JWT Token {}", e);
@@ -49,7 +47,7 @@ public class JwtUtil {
 
         return false;
     }
-
+    
     /* 넘어온 AccessToken으로 인증 객체 추출 */
     public Authentication getAuthentication(String token) {
 
@@ -57,22 +55,22 @@ public class JwtUtil {
         UserDetails userDetails = userService.loadUserByUsername(this.getUserId(token));
 
         /* 토큰에서 claim들 추출 */
-        Claims claims = parseClaims(token);
+/*        Claims claims = parseClaims(token);
         log.info("넘어온 AccessToken claims 확인: {}", claims);
 
         Collection<? extends GrantedAuthority> authorities = null;
         if(claims.get("auth") == null) {
             throw new RuntimeException("권한 정보가 없는 토큰입니다.");
         } else {
-            /* 클레임에서 권한 정보 가져오기 */
-            authorities =
-                    Arrays.stream(claims.get("auth").toString()
-                                    .replace("[", "")
-                                    .replace("]", "")
-                                    .split(", "))
-                            .map(SimpleGrantedAuthority::new)
-                            .collect(Collectors.toList());
-        }
+            *//* 클레임에서 권한 정보 가져오기 *//*
+             authorities =
+                     Arrays.stream(claims.get("auth").toString()
+                                     .replace("[", "")
+                                     .replace("]", "")
+                                     .split(", "))
+                             .map(SimpleGrantedAuthority::new)
+                             .collect(Collectors.toList());
+        }*/
 
         return new UsernamePasswordAuthenticationToken(userDetails, "", userDetails.getAuthorities());
     }
@@ -86,4 +84,6 @@ public class JwtUtil {
     public String getUserId(String token) {
         return parseClaims(token).getSubject();
     }
+
+
 }

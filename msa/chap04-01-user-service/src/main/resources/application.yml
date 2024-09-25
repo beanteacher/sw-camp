@@ -1,0 +1,33 @@
+server:
+  port: 0
+
+spring:
+  application:
+    name: swcamp-user-service
+
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://localhost:3306/menudb
+    username: swcamp
+    password: swcamp
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+token:
+  expiration_time: 43200000
+  secret: K0HHLFxls3IXU9tafT999JvEC3c80Dhy7qv41YyY99Pe1agCbJyiv558uBWHTQiYzRDdju9/CLtZltizLjGgSQ==
