@@ -18,7 +18,8 @@ public class UserController {
 
     @GetMapping("/health")
     public String status() {
-        return "I'm Working in User Service " + env.getProperty("local.server.port");
+        return "I'm Working in User Service " + env.getProperty("local.server.port")
+                + ", test Message : " + env.getProperty("test.message");
     }
 
     /* 회원 가입 기능 */

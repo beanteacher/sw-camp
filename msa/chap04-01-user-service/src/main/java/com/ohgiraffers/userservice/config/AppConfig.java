@@ -2,6 +2,8 @@ package com.ohgiraffers.userservice.config;
 
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
+import org.springframework.boot.actuate.web.exchanges.HttpExchangeRepository;
+import org.springframework.boot.actuate.web.exchanges.InMemoryHttpExchangeRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -27,11 +29,8 @@ public class AppConfig {
         return new BCryptPasswordEncoder();
     }
 
-
-
-
-
-
-
-
+    @Bean
+    HttpExchangeRepository exchangeRepository() {
+        return new InMemoryHttpExchangeRepository();
+    }
 }

@@ -41,6 +41,7 @@ public class SecurityConfig {
             .authorizeHttpRequests(authz ->
                 authz.requestMatchers(new AntPathRequestMatcher("/users/**", "POST")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/health", "GET")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/actuator/**")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/users/**", "GET")).hasAuthority("USER")
                         .anyRequest().authenticated()
             )

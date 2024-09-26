@@ -1,0 +1,11 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          ## local repository의 경로를 기입 or remote repository 주소를 기입
+          uri: file:///C:\config

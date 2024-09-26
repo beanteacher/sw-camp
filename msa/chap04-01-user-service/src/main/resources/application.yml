@@ -4,7 +4,8 @@ server:
 spring:
   application:
     name: swcamp-user-service
-
+  config:
+    import: classpath:/bootstrap.yml
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
     url: jdbc:mariadb://localhost:3306/menudb
@@ -28,6 +29,10 @@ eureka:
     service-url:
       defaultZone: http://localhost:8761/eureka
 
-token:
-  expiration_time: 43200000
-  secret: K0HHLFxls3IXU9tafT999JvEC3c80Dhy7qv41YyY99Pe1agCbJyiv558uBWHTQiYzRDdju9/CLtZltizLjGgSQ==
+# 모니터링 하고싶은 actuator의 endpoint를 활성화 한다.
+management:
+  endpoints:
+    web:
+      exposure:
+        exclude:
+        include: health, metrics, loggers, env, threaddump, beans, httpexchanges

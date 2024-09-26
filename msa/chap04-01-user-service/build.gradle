@@ -31,6 +31,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+    // 인스턴스 간의 통신을 위해 추가한 dependency
     implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
     testImplementation 'org.springframework.security:spring-security-test'
     compileOnly 'org.projectlombok:lombok'
@@ -49,6 +50,13 @@ dependencies {
     implementation 'io.jsonwebtoken:jjwt-impl:0.11.5'
     // https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt-jackson
     runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.11.5'
+
+    // config server 인식을 위해 주가한 dependency
+    implementation 'org.springframework.cloud:spring-cloud-starter-config'
+    // bootstrap 설정 파일을 로드하기 위해 추가한 dependency
+    implementation 'org.springframework.cloud:spring-cloud-starter-bootstrap'
+
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
 }
 
 dependencyManagement {
