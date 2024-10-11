@@ -22,7 +22,7 @@
     <file type="web" url="file://$PROJECT_DIR$/chap19-junit-lecture-source" />
     <file type="web" url="file://$PROJECT_DIR$/chap99-comprehensive-lecture-source" />
   </component>
-  <component name="ProjectRootManager">
+  <component name="ProjectRootManager" version="2" project-jdk-name="temurin-17" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>
