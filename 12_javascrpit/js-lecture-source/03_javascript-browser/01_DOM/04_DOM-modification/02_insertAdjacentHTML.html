@@ -17,7 +17,12 @@
     </div>
 
     <script>
+        const $area = document.getElementById('area');
 
+        $area.insertAdjacentHTML('beforebegin', '<h1>beforebegin 테스트</h1>');
+        $area.insertAdjacentHTML('afterbegin', '<h1>afterbegin 테스트</h1>');
+        $area.insertAdjacentHTML('beforeend', '<h1>beforeend 테스트</h1>');
+        $area.insertAdjacentHTML('afterend', '<h1>afterend 테스트</h1>');
     </script>
 
 

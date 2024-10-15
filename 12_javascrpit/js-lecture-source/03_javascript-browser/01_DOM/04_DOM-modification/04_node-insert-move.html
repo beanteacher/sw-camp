@@ -17,8 +17,22 @@
     </ul>
 
     <script>
+        const $drink = document.getElementById('drink');
 
+        const $li = document.createElement('li');
+        $li.textContent = '콜라';
+        $drink.appendChild($li);
 
+        const $li2 = document.createElement('li');
+        $li2.textContent = '사이다';
+        $drink.insertBefore($li2, $drink.lastElementChild);
+
+        const $li3 = document.createElement('li');
+        $li3.textContent = '우유';
+        // 두 번째 인수가 $drink의 자식 요소가 아니기 때문에 DOMException이 발생한다.
+        // $drink.insertBefore($li3, document.querySelector('p'));
+        // 두 번째 인수가 null일 경우 appendChild 처럼 기능한다. (마지막 자식 노드로 추가)
+        $drink.insertBefore($li3, null);
     </script>
 
     <h3>노드 이동</h3>
@@ -33,7 +47,13 @@
     </ul>
 
     <script>
+        const $food = document.getElementById('food');
 
+        const $pasta = $food.firstElementChild;
+        const $pizza = $food.lastElementChild;
+
+        $drink.appendChild($pasta);
+        $drink.insertBefore($pizza, $pasta);
     </script>
 
 </body>

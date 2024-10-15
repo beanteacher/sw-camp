@@ -18,6 +18,16 @@
   </ul>
 
   <script>
+    const $ul = document.querySelector('.copy');
+    const $li = $ul.firstElementChild;
+
+    // $li 얕은 복사 -> 자신 노드만 포함한 사본 생성
+    const $shallowCopy = $li.cloneNode(false);
+    // $ul 깊은 복사 -> 모든 자손 노드가 포함 된 사본 생성
+    const $deepCopy = $ul.cloneNode(true);
+
+    $ul.appendChild($shallowCopy);
+    $ul.appendChild($deepCopy);
 
   </script>
 
@@ -32,7 +42,13 @@
   </ul>
 
   <script>
+    const $drink = document.getElementById('drink');
+    const $coffee = $drink.firstElementChild;
 
+    const $newChild = document.createElement('li');
+    $newChild.textContent = '콜라';
+
+    $drink.replaceChild($newChild, $coffee);
   </script>
 
   <h3>노드 삭제</h3>
@@ -46,7 +62,8 @@
   </ul>
 
   <script>
-
+    const $food = document.getElementById('food');
+    $food.removeChild($food.lastElementChild);
   </script>
 
 </body>

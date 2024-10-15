@@ -5,7 +5,93 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9ddbc9ad-4a21-44d7-9a00-75180a070c74" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/03_javascript-browser/01_DOM/05_attribute/01_attribute.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/03_javascript-browser/01_DOM/05_attribute/02_attribute-and-property.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/03_javascript-browser/01_DOM/05_attribute/03_data-attribute-and-dataset-property.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/03_javascript-browser/01_DOM/06_style/01_inline-style.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/03_javascript-browser/01_DOM/06_style/02_className-classList.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../09_cqrs/08_rest-api" beforeDir="false" afterPath="$PROJECT_DIR$/../09_cqrs/08_rest-api" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/01_variable/01_data-type/01_number.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/01_variable/01_data-type/02_string.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/01_variable/01_data-type/03_boolean.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/01_variable/01_data-type/04_undefined-and-null.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/01_variable/01_data-type/05_symbol-and-object.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/01_variable/02_dynamically-typed-language/01_dynamically-typed-language.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/01_variable/03_implicit-coercion/01_convert-to-string.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/01_variable/03_implicit-coercion/02_convert-to-number.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/01_variable/03_implicit-coercion/03_convert-to-boolean.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/01_variable/04_explicit-coercion/01_convert-to-string.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/01_variable/04_explicit-coercion/02_convert-to-number.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/01_variable/04_explicit-coercion/03_convert-to-boolean.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/02_operator/01_comparison-operator/01_comparision-operator.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/02_operator/02_logical-operator/01_short-curcuit-evaluation.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/02_operator/03_ES11-operator/01_optional-chaining-operator.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/02_operator/03_ES11-operator/02_nullish-coalescing-operator.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/03_object-literal/01_object/01_object.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/03_object-literal/02_property/01_property.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/03_object-literal/02_property/02_method.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/03_object-literal/02_property/03_property-accessor.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/03_object-literal/02_property/04_property-change-add-remove.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/03_object-literal/03_ES6/01_property-value-shorthand.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/03_object-literal/03_ES6/02_method-shorthand.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/03_object-literal/04_additional-operator/01_in-operator.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/03_object-literal/04_additional-operator/02_for-in.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/04_function/01_function-definition/01_function-declaration.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/04_function/01_function-definition/02_function-expression.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/04_function/01_function-definition/03_function-hoisting.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/04_function/02_function-call/01_parameter-and-arguement.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/04_function/02_function-call/02_return.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/04_function/03_arrow-function/01_arrow-function-basic-syntax.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/04_function/04_various-types-of-functions/01_immediately-invoked-function-expression.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/04_function/04_various-types-of-functions/02_nested-function.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/04_function/04_various-types-of-functions/03_callback-function.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/04_function/04_various-types-of-functions/04_pure-and-impure-function.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/04_function/05_first-class-object/01_first-class-object.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/05_scope/01_scope/01_global-and-local-scope.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/05_scope/01_scope/02_function-level-scope.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/05_scope/02_let-and-const/01_var.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/05_scope/02_let-and-const/02_let.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/05_scope/02_let-and-const/03_const.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/06_object-constructor/01_object-constructor-function/01_object-constructor-function.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/06_object-constructor/02_constructor-function/01_constructor-function.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/06_object-constructor/02_constructor-function/02_instance-creation-process.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/06_object-constructor/02_constructor-function/03_difference-from-regular-function.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/07_prototype/01_inheritance/01_[[Prototype]].js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/07_prototype/01_inheritance/02_prototype-feature.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/07_prototype/02_function-prototype/01_object-constructor-prototype.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/07_prototype/02_function-prototype/02_function-prototype-and-constructor-property.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/07_prototype/03_built-in-object-prototype/01_object-prototype.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/07_prototype/03_built-in-object-prototype/02_built-in-object-prototype.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/07_prototype/04_modern-method/01_modern-method.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/08_strict-mode/01_strict-mode/01_strict-mode.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/08_strict-mode/01_strict-mode/02_strict-mode-apply.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/08_strict-mode/02_example/01_error-case.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/08_strict-mode/02_example/02_change-case.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/09_array/01_array/01_array.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/09_array/01_array/02_difference-from-regular-array.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/09_array/01_array/03_length-property.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/09_array/02_array-method/01_array-method.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/09_array/02_array-method/02_array-higher-order-function.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/10_standard-built-in-object/01_global-object/01_built-in-global-property.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/10_standard-built-in-object/01_global-object/02_built-in-global-function.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/10_standard-built-in-object/02_Number/01_Number.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/10_standard-built-in-object/02_Number/02_Number-property.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/10_standard-built-in-object/02_Number/03_Number-method.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/10_standard-built-in-object/03_Math/01_Math-property.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/10_standard-built-in-object/03_Math/02_Math-method.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/10_standard-built-in-object/04_Date/01_Date.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/10_standard-built-in-object/04_Date/02_Date-method.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/10_standard-built-in-object/05_RegExp/01_RegExp.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/10_standard-built-in-object/05_RegExp/02_RegExp-method.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/10_standard-built-in-object/05_RegExp/03_flag-and-pattern.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/10_standard-built-in-object/05_RegExp/04_example.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/10_standard-built-in-object/06_String/01_String.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/01_javascript-core/10_standard-built-in-object/06_String/02_String-method.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/03_javascript-browser/01_DOM/04_DOM-modification/01_innerHTML.html" beforeDir="false" afterPath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/03_javascript-browser/01_DOM/04_DOM-modification/01_innerHTML.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/03_javascript-browser/01_DOM/04_DOM-modification/02_insertAdjacentHTML.html" beforeDir="false" afterPath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/03_javascript-browser/01_DOM/04_DOM-modification/02_insertAdjacentHTML.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/03_javascript-browser/01_DOM/04_DOM-modification/03_node-create-append.html" beforeDir="false" afterPath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/03_javascript-browser/01_DOM/04_DOM-modification/03_node-create-append.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/03_javascript-browser/01_DOM/04_DOM-modification/04_node-insert-move.html" beforeDir="false" afterPath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/03_javascript-browser/01_DOM/04_DOM-modification/04_node-insert-move.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/03_javascript-browser/01_DOM/04_DOM-modification/05_node-copy-replace-remove.html" beforeDir="false" afterPath="$PROJECT_DIR$/../12_javascrpit/js-lecture-source/03_javascript-browser/01_DOM/04_DOM-modification/05_node-copy-replace-remove.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,25 +128,25 @@
     <option name="showLibraryContents" value="true" />
     <option name="sortKey" value="BY_TIME_DESCENDING" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Gradle.Build sql-cbt.executor": "Run",
-    "Gradle.sql-cbt [:Main.main()].executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Playdata/Desktop/lecture/sql-cbt",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.Build sql-cbt.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.sql-cbt [:Main.main()].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Playdata/Desktop/lecture/sql-cbt&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.ohgiraffers.Main" />
@@ -112,7 +198,7 @@
       <updated>1723615828005</updated>
       <workItem from="1723615829174" duration="2000" />
       <workItem from="1728608554716" duration="3148000" />
-      <workItem from="1728877651594" duration="6775000" />
+      <workItem from="1728877651594" duration="6777000" />
     </task>
     <servers />
   </component>

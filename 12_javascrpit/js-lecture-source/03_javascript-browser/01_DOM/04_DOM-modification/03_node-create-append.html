@@ -17,7 +17,22 @@
   </ul>
 
   <script>
+    const $drink = document.getElementById('drink');
 
+    // 요소 노드 생성
+    const $li = document.createElement('li');
+
+    // 텍스트 노드 생성
+    // const textNode = document.createTextNode('콜라');
+
+    // 텍스트 노드를 li 요소노드의 마지막 자식 노드로 추가
+    // $li.appendChild(textNode);
+
+    // createTextNode 대신 직접 textContent 추가
+    $li.textContent = '콜라';
+
+    // li 요소 노드를 drink 요소 노드의 마지막 자식 노드로 추가
+    $drink.appendChild($li);
   </script>
 
   <h3>복수의 노드 생성과 추가</h3>
@@ -26,7 +41,33 @@
   </ul>
 
   <script>
+    const $food = document.getElementById('food');
 
+    // 2) 컨테이너 요소 div 사용
+    const $container = document.createElement('div');
+
+    // 3) DocumentFragment 노드는 자식 노드들의 부모 노드로서
+    // 별도의 서브 DOM을 구성하여 기존 DOM에 추가하기 위한 용도로 사용한다.
+    const $fragment = document.createDocumentFragment();
+
+    ['된장찌개', '고등어구이', '순대국'].forEach(text => {
+      const $li = document.createElement('li');
+      $li.textContent = text;
+
+      // 1) DOM 이 3번 변경 되면서 리플로우, 리페인트가 3번 실행 되어 비효율적이다.
+      // $food.appendChild($li);
+
+      // 2) div 에 li를 추가
+      // $container.appendChild($li);
+
+      // 3) fragment에 li 추가
+      $fragment.appendChild($li);
+    });
+    // 2) 컨테이너 요소 div를 사용하면 DOM은 한 번만 변경 된다.
+    // $food.appendChild($container);
+
+    // 3) 자신은 제거되고 자식 노드만 추가되며 DOM 은 한 번만 변경 된다.
+    $food.appendChild($fragment);
   </script>
 
 </body>

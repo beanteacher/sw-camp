@@ -16,7 +16,15 @@
     </div>
 
     <script>
+        const $area = document.getElementById('area');
 
+        // getter
+        console.log($area.innerHTML);
+
+        // setter
+        $area.innerHTML += '값 추가';  // 노드 추가
+        $area.innerHTML = '<h1>innerHTML</h1>속성으로 값 변경';    // 노드 교체
+        $area.innerHTML = '';   // 노드 삭제
     </script>
 
     <p>
@@ -27,7 +35,7 @@
     </p>
 
     <script>
-
+        $area.innerHTML = `<img src='x' onerror='alert("메롱~")'>`;
     </script>
 
     <p>
@@ -41,7 +49,8 @@
     </ul>
 
     <script>
-
+        const $list = document.getElementById('list');
+        $list.innerHTML += '<li class="coke">콜라</li>';
     </script>
 
 </body>
