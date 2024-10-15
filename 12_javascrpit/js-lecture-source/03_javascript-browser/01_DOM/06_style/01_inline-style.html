@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>01. inline style</h1>
+    <p>
+        HTMLElement.prototype.style 프로퍼티는 setter와 getter가 모두 존재하는 접근자 프로퍼티로
+        요소 노드의 인라인 스타일을 취득하거나 추가 또는 변경한다.
+
+    </p>
+
+    <div style="color : white;">AREA</div>
+
+    <script>
+        const $area = document.querySelector('div');
+        console.log($area.style);
+
+        // 인라인 스타일 추가
+        $area.style.width = '100px';
+        $area.style.height = '100px';
+
+        // style 객체의 프로퍼티는 카멜 케이스로 작성
+        $area.style.backgroundColor = 'lightgray';
+        $area.style['background-color'] = 'red';
+
+    </script>
+
+</body>
+</html>
