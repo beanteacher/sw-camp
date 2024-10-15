@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .white { color : white; }
+        .black { color : black; }
+        .red { color : red; }
+        .blue { color : blue; }
+    </style>
+</head>
+<body>
+<h1>05. HTMLCollection과 NodeList</h1>
+<p>
+    DOM API가 여러 개의 결과 값을 반환하기 위한 DOM 컬렉션 객체로 둘 다 유사 배열이며 이터러블(순회 가능)이다.
+</p>
+
+<h3>HTMLCollection</h3>
+<p>
+    노드 객체의 상태 변화를 실시간으로 반영하는 살아있는(live) DOM 컬렉션 객체이다.
+</p>
+<ul>
+    <li class="white">착한 사람 눈에만 보이는 첫 번째 글</li>
+    <li class="white">착한 사람 눈에만 보이는 두 번째 글</li>
+    <li class="white">착한 사람 눈에만 보이는 세 번째 글</li>
+</ul>
+<script>
+    const $whiteList = document.getElementsByClassName("white");
+    console.log($whiteList);
+
+    /*for(let i = 0; i < $whiteList.length; i++) {
+        // i가 0일 땐 white라는 클래스가 3개 였다가
+        // i가 1일 땐 white라는 클래스가 2개로 되어 첫번 째랑 세 번째만 바뀌었다
+        // -> Live Dom이라서
+        $whiteList[i].className = "black"
+    }*/
+
+    /* 반복문 역방향 순회 */
+    // for (let i = $whiteList.length - 1; i >= 0; i--) {
+    //     $whiteList[i].className = 'black';
+    // }
+
+    // while문 활용
+    // while($whiteList.length > 0) {
+    //     $whiteList[0].className = 'black';
+    // }
+
+    // HTMLCollection -> Array로 변환시켜서 사용하는 방법이 가장 권장된다.
+    Array.from($whiteList).forEach(list => list.className = 'black');
+</script>
+
+<h3>NodeList</h3>
+<p>
+    실시간으로 노드 객체의 상태를 변경하지 않기 때문에 HTMLCollection의 부작용을 해결할 수 있다.
+</p>
+<ul id="lists">
+    <li class="red">빨간 휴지 줄까~ 파란 휴지 줄까~</li>
+    <li class="red">빨간 휴지 줄까~ 파란 휴지 줄까~</li>
+    <li class="red">빨간 휴지 줄까~ 파란 휴지 줄까~</li>
+</ul>
+<script>
+    const $redList = document.querySelectorAll(".red");
+    // NodeList 객체는
+    $redList.forEach(list => list.className = "blue");
+</script>
+<p>
+    대부분의 NodeList는 non-live로 동작하지만 <b>childNodes 프로퍼티</b>가 반환하는 NodeList
+    객체는 live로 동작하므로 주의가 필요하다.
+</p>
+<script>
+    const $list = document.getElementById("lists");
+    const childNodes = $list.childNodes;
+    
+    console.log(childNodes)
+    for(let i = 0; i < childNodes.length; i++) {
+        // removeChild 메서드 호출 시마다 childNodes가 실시간으로 변경되어
+        // 처음 기준으로 1,3,5,7 번째 노드만 삭제되었다.
+        $lists.removeChild(childNodes[i]);
+    }
+</script>
+
+<p>
+    따라서 <b>노드 객체 상태 변경과 상관 없이 안전하게 DOM 컬렉션을 사용하려면</b>
+    둘 다 배열로 변환하여 사용하는 것을 더 권장한다.
+    각각의 객체가 메서드를 제공하기는 하지만 배열의 고차함수만큼 다양한 기능을 제공하지는 않는다.
+</p>
+
+</body>
+</html>
