@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>01. 노드 정보 취득</h1>
+    <p>
+        Node.prototype.nodeType : 노드 객체 종류, 즉 노드 타입을 나타내는 상수 반환 <br>
+        Node.prototype.nodeName : 노드의 이름을 문자열로 반환
+    </p>
+
+    <div id="area">노드 정보 취득</div>
+
+    <script>
+        console.log(document.nodeType); // Node.DOCUMENT_NODE (9)
+        console.log(document.nodeName);
+
+        const $area = document.getElementById('area');
+        console.log($area.nodeType);    // Node.ELEMENT_NODE (1)
+        console.log($area.nodeName);
+
+        const $textNode = $area.firstChild;
+        console.log($textNode.nodeType);    // Node.TEXT_NODE (3)
+        console.log($textNode.nodeName);
+    </script>
+
+</body>
+</html>
