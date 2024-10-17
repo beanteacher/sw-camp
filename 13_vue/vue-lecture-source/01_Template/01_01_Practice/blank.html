@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- data.js 파일을 불러오는 스크립트 -->
+    <script src="./data.js"></script>
+    <title>Vue</title>
+    <style>
+        header {
+            text-align: center;
+        }
+
+        section {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        article {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 300px;
+            height: 300px;
+            border: 1px solid;
+            overflow: hidden;
+        }
+
+        img {
+            width: 100%;
+            height: 60%;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1> vue template 익숙해지기</h1>
+</header>
+<main id="app">
+    <section>
+        <template v-for="scholar in scholars" :key="scholar.id">
+            <article>
+                <span>이름 : {{scholar.name}}</span>
+                <p>소개 : {{scholar.introduction}}</p>
+                <figure>
+                    <img :src="scholar.img" :alt="scholar.name"/>
+                </figure>
+            </article>
+        </template>
+    </section>
+</main>
+
+<script>
+    // data.js 파일을 불러오면 scholar 변수를 사용할 수 있다.
+
+    const {createApp, ref} = Vue;
+    console.log(scholar)
+    createApp({
+        setup(){
+            const scholars = ref(scholar);
+
+            return {
+                scholars
+            }
+        }
+
+    }).mount("#app");
+</script>
+</body>
+</html>

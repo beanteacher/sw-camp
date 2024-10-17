@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+<!--
+    v-show : 조건에 따라 요소를 화면에 보여주거나 숨기는데 사용된다.
+    css의 display 속성을 컨트롤해서 엘리먼트를 존재하게 하거나 제거한다.
+-->
+<div id="step01">
+    <button @click="setState">문자열 토글 버튼</button>
+    <h1 v-show="state">Hello</h1>
+</div>
+
+<div id="step02">
+    <div v-if="isTrue">
+        <p>참인 경우</p>
+    </div>
+    <div v-if="!isTrue">
+        <p>거짓인 경우</p>
+    </div>
+    <div v-if="truthy">
+        <p>{{truthy}}</p>
+    </div>
+    <div v-if="falsy">
+        <p>{{falsy}}</p>
+    </div>
+</div>
+
+<div id="step03">
+    <h1 v-if="awesome=== 'awesome'">Vue is awesome!</h1>
+    <h1 v-else-if="awesome=== 'good'">Vue is soso!</h1>
+    <h1 v-else>Oh No ! </h1>
+    <button @click="setToggle">toggle</button>
+</div>
+
+<!-- template 태그는 실제 DOM 요소로 해석되지 않고 범위를 지정할 때 사용할 수 있다. -->
+<div id="step04">
+    <template v-if="isTrue">
+        <h1>awesome</h1>
+        <h1>good</h1>
+    </template>
+</div>
+<script>
+    const {createApp,ref} = Vue;
+
+    createApp({
+        setup(){
+            function setState() {
+                state.value = !state.value;
+            }
+            const state = ref(true);
+            return {
+                setState,
+                state
+            }
+        }
+    }).mount("#step01");
+
+    createApp({
+        setup(){
+
+            const isTrue = ref(true);
+            const truthy = ref('truthy');
+            const falsy = ref('');
+            return {
+                isTrue,
+                truthy,
+                falsy
+            }
+        }
+    }).mount("#step02");
+
+    createApp({
+        setup(){
+            const awesome = ref("awesome");
+            const options = ["awesome", "good", "not good"];
+            let count = 1;
+            function setToggle() {
+                const optionIndex = count % options.length;
+                awesome.value = options[optionIndex];
+                count++;
+            }
+            return {
+                awesome,
+                setToggle
+            }
+        }
+    }).mount("#step03");
+
+    createApp({
+        setup(){
+            const isTrue = ref(true);
+            return {
+                isTrue
+            }
+        }
+    }).mount("#step04");
+</script>
+</body>
+</html>

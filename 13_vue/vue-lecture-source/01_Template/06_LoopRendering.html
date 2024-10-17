@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+<!--
+    v-for : 배열을 기준으로 항목 목록을 렌더링 하는 지시문이다.
+-->
+<div id="step01">
+    <h5>과일가게</h5>
+    <ul>
+        <li v-for="item in items">{{item}}</li>
+    </ul>
+</div>
+
+<div id="step02">
+    <h5>프로필</h5>
+    <ul>
+        <li v-for="(value, key, index) in profile">{{index}} : {{key}} : {{value}}"</li>
+    </ul>
+    <ul>
+        <li v-for="element in profile">{{element}}</li>
+    </ul>
+</div>
+
+<div id="step03">
+    <h5>data 없이 범위 반복</h5>
+    <ul>
+        <li v-for="n in 10">{{n}}</li>
+    </ul>
+</div>
+
+<div id="step04">
+    <h5>과일가게 있다 없다</h5>
+    <ul>
+        <template v-for="item in items">
+            <li v-if="item.state">{{item.name}}</li>
+        </template>
+    </ul>
+</div>
+
+<!--
+    : key
+    Vue가 렌더링 된 요소 목록을 업데이트 할 때 v-for는 기본적으로 반복되어 나온 DOM 요소 전체를 확인하게 된다.
+    이 때 Vue가 각 노드의 id를 추적할 수 있도록 힌트를 주고 기존 요소를 재사용하여 순서를 변경함에 있어 용이하게 하려면
+    key라는 정보를 제공하여 성능상 이점을 가져갈 수 있다. -> 반복 시에는 필수로 적는다.
+-->
+<div id="step05">
+    <h5>과일가게2</h5>
+    <div v-for="item in items" :key="item.id">
+        {{item.id}} - {{item.name}}
+    </div>
+</div>
+
+<script>
+    const {createApp,ref,reactive} = Vue;
+    createApp({
+        setup(){
+            const items = ref(['apple','banana','tomato','aoa'])
+            return {
+                items
+            }
+        }
+    }).mount("#step01");
+
+    createApp({
+        setup(){
+            const profile = reactive({
+                name : "홍길동",
+                address : "서울시 강남구",
+                introduction : "Vue 전문가"
+            })
+            return {
+                profile
+            }
+        }
+    }).mount("#step02");
+
+    createApp({
+        setup(){
+            return {
+            }
+        }
+    }).mount("#step03");
+
+    createApp({
+        setup(){
+            const items = ref([
+                {name : 'apple', state : true},
+                {name : 'pineapple', state : true},
+                {name : 'melon', state : true},
+                {name : 'watermelon', state : true}
+
+            ])
+            return {
+                items
+            }
+        }
+    }).mount("#step04");
+
+    createApp({
+        setup(){
+            const items = ref([
+                {id : 1, name : 'apple'},
+                {id : 2, name : 'pineapple'},
+                {id : 3, name : 'melon'},
+                {id : 4, name : 'watermelon'}
+
+            ])
+            return {
+                items
+            }
+        }
+    }).mount("#step05");
+</script>
+</body>
+</html>

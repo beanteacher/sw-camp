@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./data.js"></script>
+    <style>
+        header {
+            text-align: center;
+        }
+
+        section {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        article {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 300px;
+            height: 300px;
+            border: 1px solid;
+            overflow: hidden;
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            overflow: hidden;
+            border: 1px solid;
+            width: 100%;
+            height: 100%;
+        }
+
+        .image-container img {
+            flex: 1;
+            /* 이미지 간격을 조절 */
+            max-width: calc(30%);
+        }
+        .characterImg {
+            width: 100%;
+            height: 60%;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+<div id="app">
+    <header>
+        <h1> vue template 이벤트 적용</h1>
+    </header>
+    <main v-if="isTrue">
+        <button @click="setTrueFalse()">character-mode</button>
+        <section>
+            <article v-for="data in jsonData1" :key="data.id">
+                <span>이름 : {{data.name}}</span>
+                <p>소개 : {{data.introduction}}</p>
+                <figure class="image-container">
+                    <img :src="data.img" alt="이미지가 없습니다."/>
+                </figure>
+            </article>
+        </section>
+    </main>
+    <main v-if="!isTrue">
+        <button @click="setTrueFalse()">skill-mode</button>
+        <section>
+            <article v-for="data in jsonData2" :key="data.id">
+                <span>이름 : {{data.skill}}</span>
+                <p>소개 : {{data.introduction}}</p>
+                <figure class="image-container">
+                    <template v-if="data.imgs === undefined">
+                        <h3>No images</h3>
+                    </template>
+                    <template v-else>
+                        <img v-for="img in data.imgs" :src="img"/>
+                    </template>
+                </figure>
+            </article>
+        </section>
+    </main>
+</div>
+<script>
+    const {createApp, ref, reactive} = Vue;
+
+    createApp({
+        setup() {
+            const jsonData1 = scholar;
+            const jsonData2 = msaSkill;
+            const isTrue = ref(true);
+
+            function setTrueFalse() {
+                isTrue.value = !isTrue.value;
+            }
+            return {
+                jsonData1, jsonData2, isTrue, setTrueFalse
+            }
+        }
+    }).mount("#app");
+
+
+</script>
+</body>
+
+</html>
