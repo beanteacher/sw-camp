@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>브라우저 환경의 전역 객체 window의 대표 메소드</h1>
+    <h3>open</h3>
+    <p>
+        window.open(url, name, params) 메서드로 새 창을 열 수 있다.
+    </p>
+
+    <button id="btn1">새로운 창 열기</button>
+    <button id="btn2">새로운 창 열기</button>
+
+    <script>
+        document.getElementById('btn1').onclick = () => {
+            window.open('https://www.google.com', 'popup1', 'width=1080, height=800');
+        };
+
+        document.getElementById('btn2').onclick = () => {
+            open('https://www.naver.com', 'popup2');
+        };
+    </script>
+
+    <h3>alert</h3>
+    <p>
+        window.alert(message) 메서드는 확인 버튼을 가지며 메세지를 저장할 수 있는 경고 대화 상자를 띄운다.
+    </p>
+    <script>
+        window.alert('alert 창입니다!!!');
+    </script>
+
+    <h3>confirm</h3>
+    <p>
+        window.confirm(message) 메서드는 확인과 취소 두 버튼을 가지며 메세지를 지정할 수 있는
+        모달 대화상자를 띄운다.
+    </p>
+    <script>
+        const answer = window.confirm('계속 하시겠습니까?');
+        // 확인을 누를 시 true, 취소를 누르거나 ESC 키를 누르면 false 반환
+        console.log(`answer : ${answer}`);
+
+        if(answer) {
+            console.log('잘 선택하셨습니다! 가보자고요~');
+        } else {
+            console.log('아쉽네요... 다음에 또 만나요~');
+        }
+    </script>
+
+    <h3>prompt</h3>
+    <p>
+        window.prompt(message, default) 메서드는 사용자가 텍스트를 입력할 수 있도록 안내하는
+        선택적 메세지를 갖고 있는 대화 상자를 띄운다.
+    </p>
+    <script>
+        const likeNumber = window.prompt('좋아하는 숫자를 입력하세요.', 7);
+        console.log(`likeNumber : ${likeNumber}`);
+
+        if(likeNumber) {
+            console.log(`당신이 좋아하는 숫자는 ${likeNumber}이군요.`)
+        } else {
+            console.log('값을 입력하지 않으셨군요.');
+        }
+    </script>
+
+</body>
+</html>

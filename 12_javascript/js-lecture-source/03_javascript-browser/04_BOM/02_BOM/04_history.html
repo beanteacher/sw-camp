@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>04. history</h1>
+    <p>
+        history 객체는 브라우저의 세션 기록, 즉 현재 페이지를 불러온 탭 또는 프레임의 방문 기록을 조작할 수
+        있는 방법을 제공한다.
+    </p>
+
+    <button id="btn1">뒤로 가기</button>
+    <button id="btn2">앞으로 가기</button>
+    <input type="number" name="page">
+    <button id="btn3">입력한 만큼 이동하기</button>
+
+    <script>
+        // 현재 페이지를 포함해 세션 기록의 길이를 나타내는 정수 값 : length
+        console.log(`history.length : ${history.length}`);
+        document.getElementById('btn1').onclick = () => history.back();     //뒤로가기
+        document.getElementById('btn2').onclick = () => history.forward(); //앞으로가기
+        document.getElementById('btn3').onclick = () => {
+            const page = document.querySelector('input[name=page]').value;
+            history.go(page);   // 입력 된 숫자만큼 이동 (양수, 음수 가능)
+        }
+    </script>
+
+</body>
+</html>

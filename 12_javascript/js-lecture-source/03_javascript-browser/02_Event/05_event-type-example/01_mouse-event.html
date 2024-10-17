@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .area {
+            background: lightgray;
+            border : 1px solid black;
+            min-height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1>01. 마우스 이벤트</h1>
+
+    <h3>마우스 이벤트</h3>
+    <button>클릭해보세요</button>
+    <div class="area"></div>
+
+    <script>
+        const $btn = document.querySelector('button');
+        const $area = document.querySelector('.area');
+
+        // event 객체의 button 프로퍼티
+        // 0 : 왼쪽, 1 : 가운데, 2 : 오른쪽
+        $btn.onmousedown = e => {
+            $area.insertAdjacentHTML('beforeend', `mousedown button=${e.button}<br>`);
+        }
+
+        $btn.onmouseup = e => {
+            $area.insertAdjacentHTML('beforeend', `mouseup button=${e.button}<br>`);
+        }
+
+        $btn.onmouseover = e => {
+            $area.insertAdjacentHTML('beforeend', `mouseover button=${e.button}<br>`);
+        }
+
+        $btn.onmouseout = e => {
+            $area.insertAdjacentHTML('beforeend', `mouseout button=${e.button}<br>`);
+        }
+
+        $btn.onclick = e => {
+            $area.insertAdjacentHTML('beforeend', `click button=${e.button}<br>`);
+        }
+
+        $btn.ondblclick = e => {
+            $area.insertAdjacentHTML('beforeend', `dblclick button=${e.button}<br>`);
+        }
+
+        $btn.oncontextmenu = e => {
+            $area.insertAdjacentHTML('beforeend', `contextmenu button=${e.button}<br>`);
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /* 동기 작업과 비동기 작업 */
+
+    function sayHello() {
+        console.log('Hello World!');
+    }
+
+    // 작업이 순차적으로 진행 된다 -> 동기
+    sayHello();
+    console.log('end!');
+
+    // 작업이 순차적이지 않게 진행 된다 -> 비동기
+    setTimeout(sayHello, 3000);
+    console.log('end!');
+
+
+
+</script>
+
+</body>
+</html>
