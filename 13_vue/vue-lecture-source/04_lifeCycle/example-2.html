@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        .rootContainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .appContainer {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            border: 1px dotted black;
+            width: 80%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .wine-card {
+            display: flex;
+            flex-direction: column;
+            width: 30%;
+            height: 300px;
+            border: 1px solid black;
+            justify-content: center;
+            align-items: center;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+
+        .image {
+            width: 70px;
+            height: 100px;
+        }
+
+        .btn-group {
+            display: flex;
+            width: 60%;
+            justify-content: space-around;
+        }
+
+        .btn {
+            width: 50px;
+            height: 50px;
+        }
+
+        .neon {
+            color: #fff;
+            text-shadow: 0 0 10px #00f, 0 0 20px #00f, 0 0 30px #00f, 0 0 40px #00f, 0 0 70px #00f, 0 0 80px #00f, 0 0 100px #00f, 0 0 150px #00f;
+            animation: neonAnimation 1s ease-in-out infinite alternate;
+        }
+
+        @keyframes neonAnimation {
+            from {
+                text-shadow: 0 0 10px #00f, 0 0 20px #00f, 0 0 30px #00f, 0 0 40px #00f, 0 0 70px #00f, 0 0 80px #00f, 0 0 100px #00f, 0 0 150px #00f;
+            }
+
+            to {
+                text-shadow: 0 0 5px #00f, 0 0 10px #00f, 0 0 15px #00f, 0 0 20px #00f, 0 0 35px #00f, 0 0 40px #00f, 0 0 50px #00f, 0 0 75px #00f;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="app" class="rootContainer">
+        <div v-if="loadingState">
+            로딩을 준비합니다.
+        </div>
+        <template v-else>
+            <h1 :class="{'neon' : isMounted }">인생 와인</h1>
+            <div class ="btn-group">
+                <button class="btn">back</button>
+                <button class="btn">next</button>
+            </div>
+        </template>
+    </div>
+
+    <script>
+        const { createApp, onMounted , reactive , toRefs } = Vue;
+
+        /* 한 컴포넌트에 내보낼 반응형 변수를 하나의 변수로 묶는 개념으로 선언
+        * toRefs 함수를 활용하여 state에 담긴 각 프로퍼티들이 반응형 변수의 역할을 하도록 작성한다. */
+        const useWines = () => {
+            const state = reactive({
+                loadingState: true,
+                isMounted: false
+            })
+
+            const fetchData = async () => {
+                const response = await fetch("https://api.sampleapis.com/wines/reds")
+                const data = await response.json();
+                console.log("가져온 와인 데이터 : ", data);
+            }
+
+            /* 마운트가 완료 된 직후 호출 되는 lifecycle hook을 통해 fetch data 처리를 수행한다. */
+            onMounted(async () => {
+                console.log("Mount 완료 시점");
+
+                await fetchData()
+
+                // 데이터를 응답 받는 동작이 완료 되고 나면 반응형 변수들의 값을 변경
+                state.loadingState = false;
+                state.isMounted = true;
+            })
+
+            return { ...toRefs(state) }
+        }
+
+        createApp({
+            setup() {
+
+                const { loadingState, isMounted } = useWines()
+
+                return {
+                    loadingState, isMounted
+                }
+            }
+        }).mount("#app")
+    </script>
+</body>
+</html>

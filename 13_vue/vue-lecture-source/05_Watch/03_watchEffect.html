@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="../06_slot/src/main.js"></script>
+</head>
+<body>
+<div id="step01">
+</div>
+<!--
+    watch와 watchEffect의 차이점
+    1. watchEffect는 첫 인사로 감시 대상이 필요하지 않으며 동작할 콜백함수만 전달하면
+    콜백함수 내부의 반응형 변수를 감시한다. (단, oldValue 참조는 불가)
+
+    2. watch의 immediate 옵션과 동일하게 처음부터 (created 시점) 한번 실행된다.
+-->
+<script>
+    const {createApp,ref,watchEffect} = Vue;
+    createApp({
+        setup(){
+            const num = ref(0);
+            watchEffect(() => {
+                console.log(`num : ${num.value}`)
+            })
+            return {
+                num
+            }
+        }
+    }).mount("#step01");
+</script>
+</body>
+</html>
