@@ -7,7 +7,11 @@ const num2 = ref(0);
 const sum = ref(0);
 
 const sendPlus = async () => {
-  const response = await fetch(`http://localhost:30001/plus?num1=${num1.value}&num2=${num2.value}`)
+  /* NodePort 설정으로 직접 포트 번호로 접근할 때 */
+  // const response = await fetch(`http://localhost:30001/plus?num1=${num1.value}&num2=${num2.value}`)
+
+  /* Ingress를 사용하여 라우팅할 주소로 요청할 때 */
+  const response = await fetch(`/boot/plus?num1=${num1.value}&num2=${num2.value}`)
   const data = await response.json();
   console.log(data);
   sum.value = response.sum;

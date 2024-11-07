@@ -1,19 +1,11 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: v1
+kind: Service
 metadata:
-  name: vue002dep
+  name: boot002ser
 spec:
+  type: ClusterIP
+  ports:
+    - port: 8001
+      targetPort: 8080
   selector:
-    matchLabels:
-      app: vue002kube
-  template:
-    metadata:
-      labels:
-        app: vue002kube
-    spec:
-      containers:
-        - name: vue-container
-          image: limu810/k8s_vue_ing:latest
-          imagePullPolicy: Always
-          ports:
-            - containerPort: 80      # 5173이 아니라 80으로 바꿔야 한다.
+    app: boot002kube
